@@ -56,11 +56,6 @@ if __name__ == '__main__':
                 cur_dialog = dialogs.get(msg.replay_to_id, Dialog())
                 cur_dialog.response(msg)
                 dialogs[msg.replay_to_id] = cur_dialog
-                #try:
-                #    dialogs[msg.replay_to_id].response(msg)
-                #except KeyError:
-                #    dialogs[msg.replay_to_id] = Dialog()
-                #    dialogs[msg.replay_to_id].response(msg)
             time.sleep(transport._sleep)
 
     procs = []
@@ -87,16 +82,11 @@ if __name__ == '__main__':
     for proc in procs:
         proc.start()
 
-
-
 # Exit procedures
 
     def exit_handle(signum, frame):
         for proc in procs:
             proc.terminate()
-
-        for proc in procs:
-            proc.join()
 
         logging.warning(f'Terminate process: PID {proc.pid}')
 

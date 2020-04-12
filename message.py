@@ -50,17 +50,3 @@ class Message(TgMessage):
 
     def send(self):
         return self.__super.send()
-
-
-if __name__ == '__main__':
-    msg = Message(
-        text=f'Привет!',
-        replay_to_id=123123123,
-        type='telegram',
-        token='msg.token123123123123213'
-    )
-    print(msg)
-    tmp = msg.dump()
-    print(tmp)
-    new_msg = Message.load(tmp)
-    print(new_msg)
