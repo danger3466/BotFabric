@@ -1,0 +1,14 @@
+from redis import Redis
+
+
+class Settings():
+    def __init__(self):
+        self.debug = True
+        self.sleep = .5
+        self.proxy = {
+            'HTTPS': 'https://localhost:80/'
+        }
+        self.redis_connect = Redis()
+        self.telegram = {
+            'tokens': ['paste here you token']
+        }
